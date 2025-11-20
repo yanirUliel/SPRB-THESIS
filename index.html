@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דוח מחקר: ספרוס ביוסיינס (SPRB) - תזת השקעה</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a2540; /* כחול עמוק מוסדי */
+            --accent-color: #00d4ff; /* תכלת להדגשות */
+            --bull-color: #10b981; /* ירוק לתרחיש אופטימי */
+            --bear-color: #ef4444; /* אדום לתרחיש שמרני */
+            --bg-light: #f6f9fc;
+            --text-dark: #333;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header & Hero */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .ticker {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-right: 5px solid var(--accent-color);
+            padding-right: 15px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Executive Summary Grid */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        /* Graph Section - FOCUS HERE */
+        .graph-section {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .graph-container {
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 20px;
+            background: #fff;
+            border: 1px dashed #ccc; /* מסגרת זמנית */
+            border-radius: 10px;
+        }
+
+        .graph-placeholder-text {
+            color: #888;
+            font-style: italic;
+            padding: 50px;
+        }
+
+        /* Valuation Cards */
+        .valuation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            padding: 2rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: var(--card-shadow);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-bull { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+        .card-base { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); }
+        .card-bear { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); }
+
+        .price-target {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+
+        .probability {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Key Stats Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        th, td {
+            text-align: right;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #777;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Image Class */
+        .chart-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+    /* כפתור שיטס */
+        .sheets-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #0F9D58; /* הצבע הירוק של גוגל שיטס */
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .sheets-btn:hover {
+            background-color: #0b8043;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .sheets-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="ticker">NASDAQ: SPRB</div>
+            <h1>ספרוס ביוסיינס: דוח מחקר מקיף</h1>
+            <div class="subtitle">הזדמנות ארביטראז' בנוירולוגיה יתומה | טיפול ל-MPS IIIB</div>
+            
+            <a href="https://docs.google.com/spreadsheets/d/19cqSzkIToJ6fxvfAK7tGHXddllhDUWQCdJ-2L6gKHOQ/edit?usp=sharing" target="_blank" class="sheets-btn">
+                <svg class="sheets-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/>
+                </svg>
+                לצפייה במודל הכלכלי המלא (Sheets)
+            </a>
+        </div>
+    </header>
+    <div class="container">
+        <section>
+            <h2>תקציר מנהלים: פרופיל סיכון/סיכוי א-סימטרי</h2>
+            <p>חברת Spruce Biosciences (SPRB) מציגה הזדמנות השקעה ייחודית לאחר טרנספורמציה אסטרטגית ורכישת תוכנית ה-TA-ERT. החברה מחזיקה בנכס בשלב מתקדם (Late-stage) המוכן להגשה רגולטורית, עם פרופיל סיכון מופחת משמעותית.</p>
+            
+            <div class="summary-grid">
+                <div class="highlight-box">
+                    <h3>🚀 נדירות (Scarcity)</h3>
+                    <p>נכס יחיד מסוגו לטיפול במחלה קטלנית (MPS IIIB) ללא מתחרים קליניים פעילים, עם פוטנציאל למונופול דה-פקטו.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>⚖️ הפחתת סיכון (De-risking)</h3>
+                    <p>הסכמה תקדימית עם ה-FDA לשימוש בסמן ביולוגי (Heparan Sulfate) לאישור מואץ, ללא המתנה לתוצאות קליניות ארוכות טווח.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>💰 קטליזטורים קרובים</h3>
+                    <p>הגשת BLA ב-Q1 2026, פוטנציאל לקבלת שובר עדיפות (PRV) בשווי ~$100M, ואישור שיווק ב-2026.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="graph-section">
+            <h2>התיקוף המדעי: נורמליזציה של רעלים במוח</h2>
+            <p>הנתון החזק ביותר בתזת ההשקעה הוא הירידה הדרמטית ברמות ה-Heparan Sulfate בנוזל השדרה. ה-FDA אישר כי מדד זה מנבא תועלת קלינית.</p>
+            
+            <div class="graph-container">
+                
+                <div class="graph-container">
+              <img src="graph.jpg" alt="ירידה דרמטית ב-Heparan Sulfate" class="chart-img">
+            </div>
+            <p><strong>משמעות הגרף:</strong> הטיפול ב-TA-ERT הוביל לנורמליזציה מהירה ועמידה של רמות ה-HS-NRE מתחת לגבול הכימות, מה שמונע את הנזק הנוירו-דגנרטיבי ומייצב את התפקוד הקוגניטיבי.</p>
+        </section>
+
+        <section>
+            <h2>מודל מסחרי ותחזית הכנסות</h2>
+            <p>בהתבסס על תקדים התרופה Brineura של BioMarin, השוק מוכן לקלוט טיפולי ICV במחיר פרמיום למחלות יתום קטלניות.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>פרמטר</th>
+                        <th>הערכה</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>אוכלוסיית יעד (ארה"ב + אירופה)</td>
+                        <td>~1,000 חולים</td>
+                    </tr>
+                    <tr>
+                        <td>מחיר שנתי משוער (Net)</td>
+                        <td>$550,000 - $750,000</td>
+                    </tr>
+                    <tr>
+                        <td>הכנסות שיא (Peak Sales)</td>
+                        <td>>$300M - $400M</td>
+                    </tr>
+                    <tr>
+                        <td>בלעדיות שוק</td>
+                        <td>לפחות עד 2037</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>תרחישי הערכת שווי (Target Prices)</h2>
+            <p>השוק מתמחר את החברה בחסר עמוק ביחס לפוטנציאל הנכס והמזומן בקופה.</p>
+            
+            <div class="valuation-grid">
+                <div class="card card-bear">
+                    <div class="probability">תרחיש שמרני (Bear)</div>
+                    <div class="price-target">$25</div>
+                    <p>עיכוב רגולטורי, דילול נוסף, שווי פירוק/מזומן בלבד.</p>
+                </div>
+
+                <div class="card card-base">
+                    <div class="probability">תרחיש בסיס (Base)</div>
+                    <div class="price-target">$533</div>
+                    <p>אישור BLA, חדירה מסחרית סבירה, מכפיל מכירות X3.</p>
+                </div>
+
+                <div class="card card-bull">
+                    <div class="probability">תרחיש אופטימי (Bull)</div>
+                    <div class="price-target">$1,507</div>
+                    <p>אישור מהיר + מכירת PRV ב-$100M + חדירת שוק גבוהה.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="border-bottom: none;">
+            <h2>מסקנות והמלצה</h2>
+            <p><strong>Strong Buy.</strong> ספרוס ביוסיינס מציגה א-סימטריה קיצונית. ההפסד מוגבל לשווי המזומן, בעוד הפוטנציאל לעלייה הוא במכפילים של מאות אחוזים. הסיכון הקליני הוסר ברובו, והסיפור עובר לביצוע רגולטורי ומסחרי.</p>
+            <p style="background: #eef2ff; padding: 15px; border-radius: 5px;">📅 <strong>אירוע מפתח הבא:</strong> הגשת BLA ברבעון הראשון של 2026.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>דיסקליימר: דוח זה מוגש למטרות אינפורמטיביות בלבד ואינו מהווה ייעוץ השקעות. ההשקעה במניות ביומד כרוכה בסיכון גבוה.</p>
+            <p>&copy; 2025 ניתוח השקעות ספרוס ביוסיינס.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
